@@ -1,0 +1,20 @@
+.gameOver{
+    width: 100%;
+    height: 100%;
+    border: 3px solid black;
+    text-align: center;
+    font-size: 24px;
+
+}
+
+.gameOverTitle{
+    margin-top: 70px;
+}
+.initals{
+    font-size: 20px;
+    text-align: center;
+}
+
+.initalsSubmit{
+    font-size: 20px;
+}

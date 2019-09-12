@@ -1,10 +1,16 @@
 body {
   margin: 0;
+  box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-width: 120px;
+  background: no-repeat url('http://sfwallpaper.com/images/background-gaming-7.jpg');
+  background-color: rgba(255, 255, 255, 0.4);
+  background-blend-mode: saturation;
+  
 }
 
 code {
@@ -15,3 +21,7 @@ code {
 #myCanvas{
   border: 1px solid black;
 }
+
+
+
+

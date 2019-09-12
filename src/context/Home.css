@@ -1,0 +1,61 @@
+
+.GameList{
+    border: 1px solid black;
+    min-height: 500px;
+    margin: 0 auto;
+    width: 500px;
+    
+}
+.DescContainer{
+    max-width: 800px;
+    margin: 0 auto;
+}
+.Desc{
+    text-align: left;
+}
+
+.otherGames{
+    display: flex;
+    justify-content: space-around;     
+}
+.pracDesc{
+    margin:0 0 0 40px;
+    font-weight: 700;
+    font-size: 24px;
+}
+.game:hover, .practiceGames:hover{
+    font-weight: 600;
+    cursor: pointer;
+    transition: .4s;
+    background-color:green;
+}
+.game:active, .practiceGames:active{
+    transition: .4s;
+    background-color:green;
+}
+
+
+.practiceGames{
+    display: inline-block;
+}
+.game, .practiceGames{
+    text-align: center;
+    padding-top: 35px;
+    margin: 40px;
+    height: 65px;
+    width: 100px; 
+    border: 1px solid black;
+}
+
+
+@media only screen and (min-width: 1090px){
+    .GameList{
+        width: 700px;
+    }
+}
+
+@media only screen and (min-width: 1150px){
+    .GameList{
+        width: 800px;
+    }
+}
