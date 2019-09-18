@@ -1,19 +1,34 @@
 
-export default function BrickBreaker(canvas, ctx, updateMode){
+export default function BrickBreaker(canvas, ctx, updateMode, mode, nextGame, state, updateScore){
  
   let x = canvas.width /2;
   let y = canvas.height-30;
-  let dx = 2;
-  let dy = -2;
+  
+  let dx = 2 * (mode === 'game' ? state.gameMultiplier : 1);
+  let dy = -2 * (mode === 'game' ? state.gameMultiplier : 1);
+  let points = 100 * (mode === 'game' ? state.gameMultiplier : 1)
   let ballRadius = 10;
-  let score = 0;
+  let score = (mode === 'game' ? state.score : 0);
   let color = '#393020';
   let paddleHeight = 10;
   let paddleWidth = 90;
   let paddleX = (canvas.width-paddleWidth)/2;
-  let paddleX2 = (canvas.width-paddleWidth)/2;
   let rightPressed = false;
   let leftPressed = false;
+
+  let leftClick = document.getElementById('leftClick')
+  leftClick.addEventListener('mousedown', leftClicked)
+  leftClick.addEventListener('mouseout', leftClickStop)
+  leftClick.addEventListener('mouseup', leftClickStop)
+  leftClick.addEventListener('touchstart', leftClicked)
+  leftClick.addEventListener('touchstop', leftClickStop)
+  let rightClick = document.getElementById('rightClick')
+  rightClick.addEventListener('mousedown', rightClicked)
+  rightClick.addEventListener('mouseup', rightClickStop)
+  rightClick.addEventListener('touchstart', rightClicked)
+  rightClick.addEventListener('touchstop', rightClickStop)
+  rightClick.addEventListener('mouseout', rightClickStop)
+
 
   function drawBall() {
     ctx.beginPath();
@@ -63,20 +78,20 @@ export default function BrickBreaker(canvas, ctx, updateMode){
       color = getRandomColor();
         dy = -dy;
     } else if (y + dy > canvas.height-ballRadius) {
-      if(x > paddleX & x < paddleX + paddleWidth || x > paddleX2 & x < paddleX2 + paddleWidth) {
-        score += 100;
-          // dy += .2
-          // if(dx < 0) {
-          //   dx -= .2
-          // } else {
-          //   dx += .2
-          // }
+      if(x > paddleX & x < paddleX + paddleWidth) {
+        score += points;
+        if(score > 100 && mode === 'practice') {
+          dx = dx *1.2
+          dy = dy * 1.2
+        }
         dy = -dy;
         
       } else {
         clearInterval(interval);
-        updateMode(score);
+        clearInterval(time)
         ctx.clearRect(0, 0,canvas.width, canvas.height);
+        updateMode(score);
+      
       }
     }
 
@@ -108,10 +123,39 @@ export default function BrickBreaker(canvas, ctx, updateMode){
         leftPressed = false;
     }
   }
+  function leftClicked() {
+    console.log('some')
+    leftPressed = true
+  }
+  function leftClickStop() {
+    leftPressed = false
+  }
+  function rightClicked() {
+    console.log('some')
+    rightPressed = true
+  }
+  function rightClickStop() {
+    rightPressed = false
+  }
 
+    function cleanSlate() {
+      if(mode === 'game') {
+      clearInterval(interval);
+      clearInterval(time)
+
+      ctx.clearRect(0, 0,canvas.width, canvas.height);
+      nextGame(score)
+      } else {
+        clearInterval(time);
+      }
+    }
   document.addEventListener("keydown", keyDownHandler, false);
   document.addEventListener("keyup", keyUpHandler, false);
-  let interval = setInterval(draw, 10);
+
+    let time = setInterval(cleanSlate, 15000)
+  
+    let interval = setInterval(draw, 10);
+
 
 }
 

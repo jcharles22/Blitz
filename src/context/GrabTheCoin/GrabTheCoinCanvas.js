@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import GameContext from './context/GameContext'
-import './Canvas.css';
-import './BrickBreakerCanvas.css'
-import BrickBreaker from './BrickBreaker';
+import GameContext from '../GameContext'
+import '../../Canvas.css';
+import '../../BrickBreakerCanvas.css'
+import GrabTheCoinGame from './GrabTheCoinGame';
 
-export default class BrickBreakerCanvas extends Component {
+export default class GrabTheCoinCanvas extends Component {
     static contextType = GameContext;
-  
+    
     state = {
        life: true,
        initails: 'ABC',
@@ -24,7 +24,7 @@ export default class BrickBreakerCanvas extends Component {
     }
     game(){
         this.setState({
-            mode: 'practice'
+            mode: 'game'
         })
         setTimeout(()=>this.runGame(), 300)
         
@@ -41,7 +41,7 @@ export default class BrickBreakerCanvas extends Component {
     runGame=()=>{
         const canvas = this.refs.canvas
         const ctx = canvas.getContext("2d")
-        BrickBreaker(canvas,ctx, this.updateMode, this.state.mode)
+        GrabTheCoinGame(canvas,ctx, this.updateMode)
     }
     updateIntials=(e)=> {
         console.log(e.target)
@@ -64,15 +64,17 @@ export default class BrickBreakerCanvas extends Component {
     this.props.history.push('/')
     }
 
-
     renderGame=()=> {
         if(this.state.mode === 'start') {
             return <button type='submit' className='start' onClick={()=> {this.game()}}>Start</button>
-        } else if(this.state.mode === 'practice') {
+        } else if(this.state.mode === 'game') {
             return (
                 <div>
                 <canvas ref="canvas" className='c' width={800} height={500} />
-                <button id='leftClick' ref='leftClick'>left</button><button id='rightClick' ref='rightClick'>right</button>
+                <button id='upClick' ref='upClick'>Up</button>
+                <button id='leftClick' ref='leftClick'>left</button>
+                <button id='rightClick' ref='rightClick'>right</button>
+                <button id='downClick' ref='downClick'>Down</button>
                 </div>
             )
         } else if(this.state.mode === 'gameOver') {
@@ -81,9 +83,7 @@ export default class BrickBreakerCanvas extends Component {
                 <h4>{this.state.score}</h4>
                 <button type='submit' className='gameOverSubmit' onClick={(e) => this.handlePlayAgain(e)} >Play Again?</button>
                 <button type='submit' className='gameOverSubmit' onClick={(e) => this.handleHome(e)} >Home Page</button>
-
             </div>)       
-            
         }
     }
 
@@ -92,16 +92,15 @@ export default class BrickBreakerCanvas extends Component {
         return(
           <div className='right'> 
             {this.renderGame()}
-            
+           
             <div className='DescContainer'>
-                    <p className='Desc'>Brick Breaker:</p>
-                    <p className='Desc'>Keep the ball in the air by bouning it off the paddle at the bottom</p>
-                    <p className='Desc'>Use 'a' to move left and 'd' to move right</p>
-                    <p className='Desc'>Or 'left arrow key' to move left and 'right arrow key' to move right</p>
+                    <p className='Desc'>Coin Grab:</p>
+                    <p className='Desc'>Grab as many coins as you can without toching the edge</p>
+                    <p className='Desc'>Use 'a' to move left 'w' to move up 'd' to move right and 's' to move down</p>
+                    <p className='Desc'>or 'left arrow key' to move left 'up arrow key' to move up 'right arrow key' to move right and 'down arrow key' to move down</p>
+
                 </div>
           </div>
         )
       }
 }
-
-

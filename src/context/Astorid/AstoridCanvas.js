@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import GameContext from './context/GameContext'
-import './Canvas.css';
-import './BrickBreakerCanvas.css'
-import BrickBreaker from './BrickBreaker';
+import GameContext from '../GameContext'
+import '../../Canvas.css';
+import '../../BrickBreakerCanvas.css'
+import AstoridGame from './AstoridGame';
 
 export default class BrickBreakerCanvas extends Component {
     static contextType = GameContext;
@@ -24,7 +24,7 @@ export default class BrickBreakerCanvas extends Component {
     }
     game(){
         this.setState({
-            mode: 'practice'
+            mode: 'game'
         })
         setTimeout(()=>this.runGame(), 300)
         
@@ -41,7 +41,7 @@ export default class BrickBreakerCanvas extends Component {
     runGame=()=>{
         const canvas = this.refs.canvas
         const ctx = canvas.getContext("2d")
-        BrickBreaker(canvas,ctx, this.updateMode, this.state.mode)
+        AstoridGame(canvas,ctx, this.updateMode)
     }
     updateIntials=(e)=> {
         console.log(e.target)
@@ -56,34 +56,34 @@ export default class BrickBreakerCanvas extends Component {
             sumbit: true
         })
     }
-    handlePlayAgain=(e)=> {
+    handleSubmit=(e)=> {
         e.preventDefault()
-        window.location.reload();
+        this.setState({
+            mode: 'gameOver'
+        })
+        this.props.history.push('/')
     }
-    handleHome=(e)=> {
-    this.props.history.push('/')
-    }
-
 
     renderGame=()=> {
         if(this.state.mode === 'start') {
             return <button type='submit' className='start' onClick={()=> {this.game()}}>Start</button>
-        } else if(this.state.mode === 'practice') {
+        } else if(this.state.mode === 'game') {
             return (
                 <div>
                 <canvas ref="canvas" className='c' width={800} height={500} />
+                <div className='leftRightContainer'>
                 <button id='leftClick' ref='leftClick'>left</button><button id='rightClick' ref='rightClick'>right</button>
+                </div>
                 </div>
             )
         } else if(this.state.mode === 'gameOver') {
             return (<div className='gameOver'>
                 <h3 className='gameOverTitle'>Game Over</h3>
                 <h4>{this.state.score}</h4>
-                <button type='submit' className='gameOverSubmit' onClick={(e) => this.handlePlayAgain(e)} >Play Again?</button>
-                <button type='submit' className='gameOverSubmit' onClick={(e) => this.handleHome(e)} >Home Page</button>
-
+                <input type='text' maxLength='3'  className='initals' value={this.state.initails} onChange={(e)=> this.updateIntials(e)}/>
+                {console.log(this.context.score)}
+                <button type='submit' className='initalsSubmit' onClick={(e) => this.handleSubmit(e)} >Enter</button>
             </div>)       
-            
         }
     }
 
@@ -93,15 +93,8 @@ export default class BrickBreakerCanvas extends Component {
           <div className='right'> 
             {this.renderGame()}
             
-            <div className='DescContainer'>
-                    <p className='Desc'>Brick Breaker:</p>
-                    <p className='Desc'>Keep the ball in the air by bouning it off the paddle at the bottom</p>
-                    <p className='Desc'>Use 'a' to move left and 'd' to move right</p>
-                    <p className='Desc'>Or 'left arrow key' to move left and 'right arrow key' to move right</p>
-                </div>
+            
           </div>
         )
       }
 }
-
-

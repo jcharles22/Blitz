@@ -1,10 +1,8 @@
 
 .GameList{
-    border: 1px solid black;
     min-height: 500px;
     margin: 0 auto;
     width: 500px;
-    
 }
 .DescContainer{
     max-width: 800px;
@@ -12,6 +10,8 @@
 }
 .Desc{
     text-align: left;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .otherGames{
@@ -19,6 +19,8 @@
     justify-content: space-around;     
 }
 .pracDesc{
+    font-style: none;
+    font: black;
     margin:0 0 0 40px;
     font-weight: 700;
     font-size: 24px;
@@ -27,11 +29,23 @@
     font-weight: 600;
     cursor: pointer;
     transition: .4s;
-    background-color:green;
+    font: black;
+    background-color:rgb(238, 238, 238);
 }
 .game:active, .practiceGames:active{
     transition: .4s;
-    background-color:green;
+    font: black;
+    background-color:rgb(238, 238, 238);
+}
+.comingSoon{
+    opacity: .5;
+    text-align: center;
+    padding-top: 35px;
+    margin: 40px;
+    height: 65px;
+    width: 100px; 
+    border: 1px solid black;
+    display: inline-block;
 }
 
 
@@ -46,6 +60,16 @@
     width: 100px; 
     border: 1px solid black;
 }
+#leftClick, #upClick, #downClick, #rightClick {
+    width: 80px;
+    height: 50px;
+    margin-right: 10px;
+}
+#upClick {
+    margin-left: 25%;
+    
+}
+
 
 
 @media only screen and (min-width: 1090px){
