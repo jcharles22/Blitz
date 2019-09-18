@@ -56,12 +56,12 @@ export default class BrickBreakerCanvas extends Component {
             sumbit: true
         })
     }
-    handleSubmit=(e)=> {
+    handlePlayAgain=(e)=> {
         e.preventDefault()
-        this.setState({
-            mode: 'gameOver'
-        })
-        this.props.history.push('/')
+        window.location.reload();
+    }
+    handleHome=(e)=> {
+    this.props.history.push('/')
     }
 
     renderGame=()=> {
@@ -71,18 +71,18 @@ export default class BrickBreakerCanvas extends Component {
             return (
                 <div>
                 <canvas ref="canvas" className='c' width={800} height={500} />
-                <div className='leftRightContainer'>
-                <button id='leftClick' ref='leftClick'>left</button><button id='rightClick' ref='rightClick'>right</button>
-                </div>
+                <button id='upClick' ref='upClick'>Up</button>
+                <button id='leftClick' ref='leftClick'>left</button>
+                <button id='rightClick' ref='rightClick'>right</button>
+                <button id='downClick' ref='downClick'>Down</button>
                 </div>
             )
         } else if(this.state.mode === 'gameOver') {
             return (<div className='gameOver'>
                 <h3 className='gameOverTitle'>Game Over</h3>
                 <h4>{this.state.score}</h4>
-                <input type='text' maxLength='3'  className='initals' value={this.state.initails} onChange={(e)=> this.updateIntials(e)}/>
-                {console.log(this.context.score)}
-                <button type='submit' className='initalsSubmit' onClick={(e) => this.handleSubmit(e)} >Enter</button>
+                <button type='submit' className='gameOverSubmit' onClick={(e) => this.handlePlayAgain(e)} >Play Again?</button>
+                <button type='submit' className='gameOverSubmit' onClick={(e) => this.handleHome(e)} >Home Page</button>
             </div>)       
         }
     }
@@ -92,8 +92,10 @@ export default class BrickBreakerCanvas extends Component {
         return(
           <div className='right'> 
             {this.renderGame()}
-            
-            
+           
+            <div className='DescContainer'>
+            <p className='Desc'>Fixing Game</p>
+          </div>
           </div>
         )
       }
