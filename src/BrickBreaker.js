@@ -109,11 +109,13 @@ export default function BrickBreaker(canvas, ctx, updateMode, mode, nextGame, st
   }
 
   function keyDownHandler(e) {
+    // e.preventDefault();
     if( e.key === 'd' || e.key === "Right" || e.key === "ArrowRight") {
       rightPressed = true;
     } else if ( e.key === 'a' || e.key === 'Left' || e.key === 'ArrowLeft' ) {
       leftPressed = true;
     }
+    
   } 
   function keyUpHandler(e) {
     if( e.key === 'd' || e.key === "Right" || e.key === "ArrowRight") {

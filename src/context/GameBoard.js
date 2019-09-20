@@ -97,6 +97,7 @@ export default class GameBoard extends Component {
      this.setState({
          mode: 'gameOver'
      })
+     this.context.submitUserScore(this.state.initails, this.state.score)
      this.props.history.push('/')
  }
 
@@ -118,7 +119,7 @@ export default class GameBoard extends Component {
                 <h3 className='gameOverTitle'>Game Over</h3>
                 <h4>{this.state.score}</h4>
                 <input type='text' maxLength='3'  className='initals' value={this.state.initails} onChange={(e)=> this.updateIntials(e)}/>
-                {console.log(this.context.score)}
+                {console.log(this.state.score)}
                 <button type='submit' className='initalsSubmit' onClick={(e) => this.handleSubmit(e)} >Enter</button>
             </div>)       
         }
@@ -129,7 +130,12 @@ export default class GameBoard extends Component {
         return(
             <div className='right'> 
               {this.renderGame()}
-              
+              <div className='DescContainer'>
+                    <p className='Desc'>Blitz</p>
+                    <p className='Desc'>Find out how long you can survive!</p>
+                    <p className='Desc'>You have one life paly the minigame chanllenges and after you complete three it speeds up and it keeps speeding up unitl you die</p>
+                    <p className='Desc'>Beat the score on the Leader board to get your initals up there</p>
+                </div>
               
             </div>
           )

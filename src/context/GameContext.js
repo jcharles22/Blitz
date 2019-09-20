@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import BrickBreaker from '../BrickBreaker';
+import config from '../config'
 
 const GameContext = React.createContext({
     setGame: () => {},
     setCanvas: () => {},
     updateScore: () => {},
     updateLife: () => {},
+    submitUserScore: () => {},
+    getScores: () => {},
 })
 
 export default GameContext
@@ -16,17 +19,35 @@ export class GameProvider extends Component {
         score: 0,
         canvas: {},
         ctx: {},
-        life: true
+        life: true,
+        leader: [{"ABC": 123}]
     };
+    submitUserScore=(users, score)=> {
+        console.log(users, score)
+        fetch(`${config.API_ENDPOINT}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body:JSON.stringify({
+                "users" : users,
+                "score" : score
+            })
+        })
+        .then(response => console.log(response))
+        setTimeout(() => {this.getScores(); }, 200)
+    }
+    getScores=()=> {
+        fetch(`${config.API_ENDPOINT}`)
+            .then(response => response.json())
+            .then(response => this.setState({leader: response}))
+            
+    }
     
     setCanvas =(canvas, ctx) =>{
         this.setState({ canvas, ctx})
     }
 
-    setGame=(canvas, ctx)=>{
-   
-        console.log(this.state)
-    }
     updateScore=(score)=>{
         this.setState({
             score: score,
@@ -39,6 +60,7 @@ export class GameProvider extends Component {
             life: true
         })
     }
+
 
 
     playGame=(canvas, ctx)=> {
@@ -55,6 +77,9 @@ export class GameProvider extends Component {
           updateScore: this.updateScore,
           life: this.state.life,
           updateLife: this.updateLife,
+          submitUserScore: this.submitUserScore,
+          getScores: this.getScores,
+          leader: this.state.leader,
         }
     return(
             <GameContext.Provider value={value}>

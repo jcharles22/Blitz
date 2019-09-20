@@ -14,10 +14,7 @@ export default class GrabTheCoinCanvas extends Component {
        mode: 'start',
        score: 0
     };
-    componentDidMount() {   
-        this.context.updateLife();
  
-      }
       
     handleNext(){
         this.setState({score: 1})

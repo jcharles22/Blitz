@@ -1,22 +1,36 @@
 import React, { Component } from 'react'
 import './LeaderBoard.css'
-import leader from './leaders'
+import GameContext from './GameContext'
 
 
 export default class LeaderBoard extends Component {
 
-    // componentWillMount() {
-    //     this.setLeaderBoard();
+    static contextType = GameContext;
+
+    state ={
+        leader : [{"ABC": 123}]
+    }
+    componentDidMount() {
+        setTimeout(() => {this.setLeaderBoard(); }, 300)
+   
+    }
+    setLeaderBoard=() =>{
+        this.setState({leader: this.context.leader})
+    }
+
+    // getScores=()=> {
+    //     fetch(`${config.API_ENDPOINT}`)
+    //         .then(response => response.json())
+    //         .then(response => this.setState({leader:response}))
     // }
 
     render() {
-        console.log(leader)
         return (
             <div className='left'>
                 <h1 className='leaderBoard'>LeaderBoard</h1>
-                {leader.map(item => {
+                {this.state.leader.map((item, index) => {
                     return (
-                    <p className='leaderBoardScore'>{`${item.name} ${item.score}`}</p>
+                    <p key={index} className='leaderBoardScore'>{`${item.users} ${item.score}`}</p>
                     )
                 })}
                 {/* <p className='leaderBoardScore'>JTC 800</p>

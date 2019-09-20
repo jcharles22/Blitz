@@ -116,6 +116,7 @@ export default function GrabTheCoinGame(canvas, ctx, updateMode, mode, nextGame,
          }
     }
     function keyDownHandler(e) {
+      
       if( e.key === 'd' || e.key === "Right" || e.key === "ArrowRight") {
         rightPressed = true;
         

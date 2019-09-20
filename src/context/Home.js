@@ -11,7 +11,7 @@ export default class Home extends Component {
                     <div>
                      <Link to='/BlitzGame'><p className='game'>PLAY BLITZ</p></Link>
                     </div>
-                    <p className='pracDesc'>Practice Games:</p>
+                    <p className='pracDesc'>Practice Mini-Games:</p>
                     {/* <div className='otherGames'> */}
                         <Link to='/GrabTheCoin'><p className='practiceGames one'>Coin Grab</p></Link>
                         <Link to='/BrickBreaker'><p className='practiceGames two'>BrickBreaker</p></Link>
