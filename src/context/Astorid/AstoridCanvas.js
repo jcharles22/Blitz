@@ -90,8 +90,11 @@ export default class BrickBreakerCanvas extends Component {
             {this.renderGame()}
            
             <div className='DescContainer'>
-            <p className='Desc'>Fixing Game</p>
-          </div>
+                    <p className='Desc'>Dodge the Rain:</p>
+                    <p className='Desc'>Keep the green guy out of the rain if you get hit by it game over.</p>
+                    <p className='Desc'>Use 'a' to move left and 'd' to move right</p>
+                    <p className='Desc'>Or 'left arrow key' to move left and 'right arrow key' to move right</p>
+                </div>
           </div>
         )
       }

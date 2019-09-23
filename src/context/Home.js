@@ -14,8 +14,8 @@ export default class Home extends Component {
                     <p className='pracDesc'>Practice Mini-Games:</p>
                     {/* <div className='otherGames'> */}
                         <Link to='/GrabTheCoin'><p className='practiceGames one'>Coin Grab</p></Link>
-                        <Link to='/BrickBreaker'><p className='practiceGames two'>BrickBreaker</p></Link>
-                        <Link to='/Astorid'><p className='practiceGames three'>Astroid</p></Link>
+                        <Link to='/BrickBreaker'><p className='practiceGames two'>Ball Bounce</p></Link>
+                        <Link to='/Astorid'><p className='practiceGames three'>Dodge Rain</p></Link>
                         <p className='comingSoon'>Coming Soon</p>
 
                     {/* </div> */}

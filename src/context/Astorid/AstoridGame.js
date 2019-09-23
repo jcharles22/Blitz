@@ -13,6 +13,7 @@ export default function AstoridGame(canvas, ctx, updateMode, mode, nextGame, sta
   
   document.addEventListener("keydown", keysDown, false);
   document.addEventListener("keyup", keysUp, false);
+
   let leftClick = document.getElementById('leftClick')
   leftClick.addEventListener('mousedown', leftClicked)
   leftClick.addEventListener('mouseout', leftClickStop)
@@ -42,20 +43,20 @@ export default function AstoridGame(canvas, ctx, updateMode, mode, nextGame, sta
   }
   // when key is pressed down, move
   function keysDown(e) {
-    if(e.keyCode === 39){
+    if(e.keyCode === 39 || e.keyCode === 68){
       right = true;
     }
-    else if(e.keyCode === 37){
+    else if(e.keyCode === 37 || e.keyCode === 65){
       left = true;
     }
 
   }
   // when key is released, stop moving
   function keysUp(e) {
-    if(e.keyCode === 39){
+    if(e.keyCode === 39 || e.keyCode === 68){
       right = false;
     }
-    else if(e.keyCode === 37){
+    else if(e.keyCode === 37 || e.keyCode === 65){
       left = false;
     }
     
