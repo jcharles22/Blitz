@@ -16,7 +16,7 @@
 
 .otherGames{
     display: flex;
-    justify-content: space-around;     
+    justify-content: space-evenly;     
 }
 .pracDesc{
     font-style: none;
@@ -26,12 +26,45 @@
     font-size: 24px;
 }
 .game:hover, .practiceGames:hover{
-    font-weight: 600;
-    cursor: pointer;
-    transition: .4s;
-    font: black;
-    background-color:rgb(238, 238, 238);
+    cursor: pointer;  
 }
+
+/* .coinGrab{
+    background-image: url('../assets/coingrab.jpg');
+    background-size:     cover; 
+    background-repeat:   no-repeat;
+    background-position: center center;
+} */
+.coinGrab{
+    background-image:url("../assets/coingrab.gif");
+    background-size:     cover; 
+    background-repeat:   no-repeat;
+    background-position: center center;  
+}
+/* .ballBounce{
+    background-image: url('../assets/ballBounce.jpg');
+    background-size:     cover; 
+    background-repeat:   no-repeat;
+    background-position: center center;
+} */
+.ballBounce{
+    background-image:url("../assets/ballbounce.gif");
+    background-size:     cover; 
+    background-repeat:   no-repeat;
+    background-position: center center;  
+}
+/* .dodgeRain{
+    background-image: url('../assets/dodgeRain.jpg');
+    background-size:     cover; 
+    background-repeat:   no-repeat;
+    background-position: center center;
+} */
+.dodgeRain{
+    background-image:url("../assets/rain.gif");
+    background-size:     cover; 
+    background-repeat:   no-repeat;
+    background-position: center center;  
+} 
 .game:active, .practiceGames:active{
     transition: .4s;
     font: black;
@@ -50,27 +83,91 @@
 
 
 .practiceGames{
-    display: inline-block;
-}
-.game, .practiceGames{
+    display: block;
     text-align: center;
-    padding-top: 35px;
+    font-size: 18px;
+    font-weight: 700;
+    color: black;
     margin: 40px;
-    height: 65px;
-    width: 100px; 
-    border: 1px solid black;
+    height: 110px;
+    width: 150px; 
+    border: 2px solid black;
 }
-#leftClick, #upClick, #downClick, #rightClick {
-    width: 80px;
-    height: 50px;
-    margin-right: 10px;
+.game{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: black;
+    margin: 40px 0 40px 40px;
+    height: 220px;
+    width: 250px; 
+    border: 2px solid black;
+    position: relative;
 }
-#upClick {
-    margin-left: 25%;
+.game{
+    background-image:url("../assets/ezgif.gif");
+    background-size:     cover; 
+    background-repeat:   no-repeat;
+    background-position: center center;  
+} 
+.game>p{
     
+    letter-spacing: 1.5px;
+    margin: 0;
+}
+
+.mainGameContainer>p{
+    padding:0;
+    margin: 0;
+}
+.topLeft{
+    position: absolute;
+    width: 125px;
+    height: 110px;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.topRigth{
+    position: absolute;
+    right:0;
+    width: 125px;
+    height: 110px;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.bottomLeft{
+    position: absolute;
+    bottom:0;
+    width: 125px;
+    height: 110px;
+    border-right: 1px solid black;
+
+}
+.bottomRight{
+    position: absolute;
+    bottom:0;
+    right: 0;
+    width: 125px;
+    height: 110px;
+    border-left: 1px solid black;
+   
 }
 
 
+@media only screen and (min-width: 475px) {
+    .practiceGames{
+        display: inline-block;
+    }
+    .game{
+        height: 220px;
+        width: 300px; 
+    }
+    .mainGame{
+        width: 150px;
+    }
+}
 
 @media only screen and (min-width: 1090px){
     .GameList{

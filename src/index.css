@@ -13,9 +13,6 @@ body {
   background: linear-gradient(to right, #757f9a, #d7dde8);
 }
 
-code {
-}
-
 #myCanvas{
   border: 1px solid black;
 }

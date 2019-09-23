@@ -1,6 +1,7 @@
 .leaderBoard{
+    text-align: center;
     font-size: 25px;
-    color: blue;
+    color: black;
     padding-bottom: 16px;
     border-bottom: 2px solid black;
 

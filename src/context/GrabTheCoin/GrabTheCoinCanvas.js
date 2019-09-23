@@ -68,10 +68,12 @@ export default class GrabTheCoinCanvas extends Component {
             return (
                 <div>
                 <canvas ref="canvas" className='c' width={800} height={500} />
-                <button id='upClick' ref='upClick'>Up</button>
-                <button id='leftClick' ref='leftClick'>left</button>
-                <button id='rightClick' ref='rightClick'>right</button>
-                <button id='downClick' ref='downClick'>Down</button>
+                <div className='moveContainer'>
+                    <p id='upClick' ref='upClick'>Up</p>
+                    <p id='leftClick' ref='leftClick'>left</p>
+                    <p id='rightClick' ref='rightClick'>right</p>
+                    <p id='downClick' ref='downClick'>Down</p>
+                </div>
                 </div>
             )
         } else if(this.state.mode === 'gameOver') {

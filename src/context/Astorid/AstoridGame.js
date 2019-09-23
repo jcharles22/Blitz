@@ -27,6 +27,9 @@ export default function AstoridGame(canvas, ctx, updateMode, mode, nextGame, sta
   rightClick.addEventListener('touchstop', rightClickStop)
   rightClick.addEventListener('mouseout', rightClickStop)
 
+
+
+
   function leftClicked() {
     console.log('some')
     left = true
