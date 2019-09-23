@@ -23,11 +23,12 @@ export default class GameBoard extends Component {
    }
    
  game(){
+     
      this.setState({
          mode: 'game'
      })
      setTimeout(()=>this.runGame(), 300)
-     
+
    }
  
    updateMode=(score)=> {
@@ -44,7 +45,7 @@ export default class GameBoard extends Component {
        })
     }
     nextGame=(score)=> {
-        if(this.state.counter === 0) {
+        if(this.state.counter < 2) {
         this.setState({
             score,
             counter: this.state.counter + 1,
@@ -52,7 +53,7 @@ export default class GameBoard extends Component {
     } else {
         this.setState({
             score,
-            counter: this.state.counter -1,
+            counter: 0,
             gameMultiplier: this.state.gameMultiplier + .5,
         })
     }
@@ -76,7 +77,7 @@ export default class GameBoard extends Component {
      } else if (this.state.counter === 1) {
          GrabTheCoin(canvas, ctx, this.updateMode, this.state.mode, this.nextGame, this.state, this.updateScore);
      } else if ( this.state.counter === 2) {
-         this.nextLevel();
+        AstroidGame(canvas, ctx, this.updateMode, this.state.mode, this.nextGame, this.state, this.updateScore);
      }
  }
  updateIntials=(e)=> {
@@ -124,7 +125,7 @@ export default class GameBoard extends Component {
             </div>)       
         }
     }
-    
+
     
     render() {
         return(
@@ -133,8 +134,9 @@ export default class GameBoard extends Component {
               <div className='DescContainer'>
                     <p className='Desc'>Blitz</p>
                     <p className='Desc'>Find out how long you can survive!</p>
-                    <p className='Desc'>You have one life paly the minigame chanllenges and after you complete three it speeds up and it keeps speeding up unitl you die</p>
+                    <p className='Desc'>You have one life paly though each game and surive for 15 seconds once you complete all of them it will start over but faster and worth more points.</p>
                     <p className='Desc'>Beat the score on the Leader board to get your initals up there</p>
+                    <p className='Desc'>Or practice the games individualy in pracitce mini-game section.</p>
                 </div>
               
             </div>

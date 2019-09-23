@@ -15,6 +15,7 @@ export default function BrickBreaker(canvas, ctx, updateMode, mode, nextGame, st
   let paddleX = (canvas.width-paddleWidth)/2;
   let rightPressed = false;
   let leftPressed = false;
+  let timeLeft = 15;
 
   let leftClick = document.getElementById('leftClick')
   leftClick.addEventListener('mousedown', leftClicked)
@@ -51,11 +52,19 @@ export default function BrickBreaker(canvas, ctx, updateMode, mode, nextGame, st
     ctx.fillStyle = 'black';
     ctx.fillText(score, canvas.width-70, 40);
   }
+  function drawTime() {
+    if(mode === 'game') {
+    ctx.font = "30px Arial";
+    ctx.fillStyle = 'black';
+    ctx.fillText(timeLeft, 0, 40);
+    } 
+  }
 
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBall(); 
     drawScore();
+    drawTime();
     drawPaddle();
     if(rightPressed) {
       paddleX += 7;
@@ -151,11 +160,19 @@ export default function BrickBreaker(canvas, ctx, updateMode, mode, nextGame, st
         clearInterval(time);
       }
     }
+    function countTime() {
+      if(mode === 'game') {
+      timeLeft --;
+      if(timeLeft <=0) {
+        clearInterval(timeCounter)
+      }
+    } else {clearInterval(timeCounter)}
+    }
   document.addEventListener("keydown", keyDownHandler, false);
   document.addEventListener("keyup", keyUpHandler, false);
 
     let time = setInterval(cleanSlate, 15000)
-  
+    let timeCounter = setInterval(countTime, 1000);
     let interval = setInterval(draw, 10);
 
 

@@ -21,7 +21,7 @@ export default class BrickBreakerCanvas extends Component {
     }
     game(){
         this.setState({
-            mode: 'game'
+            mode: 'practice'
         })
         setTimeout(()=>this.runGame(), 300)
         
@@ -38,7 +38,7 @@ export default class BrickBreakerCanvas extends Component {
     runGame=()=>{
         const canvas = this.refs.canvas
         const ctx = canvas.getContext("2d")
-        AstoridGame(canvas,ctx, this.updateMode)
+        AstoridGame(canvas,ctx, this.updateMode, this.state.mode)
     }
     updateIntials=(e)=> {
         console.log(e.target)
@@ -64,14 +64,11 @@ export default class BrickBreakerCanvas extends Component {
     renderGame=()=> {
         if(this.state.mode === 'start') {
             return <button type='submit' className='start' onClick={()=> {this.game()}}>Start</button>
-        } else if(this.state.mode === 'game') {
+        } else if(this.state.mode === 'practice') {
             return (
                 <div>
                 <canvas ref="canvas" className='c' width={800} height={500} />
-                <button id='upClick' ref='upClick'>Up</button>
-                <button id='leftClick' ref='leftClick'>left</button>
-                <button id='rightClick' ref='rightClick'>right</button>
-                <button id='downClick' ref='downClick'>Down</button>
+                <button id='leftClick' ref='leftClick'>left</button><button id='rightClick' ref='rightClick'>right</button>
                 </div>
             )
         } else if(this.state.mode === 'gameOver') {
@@ -80,7 +77,9 @@ export default class BrickBreakerCanvas extends Component {
                 <h4>{this.state.score}</h4>
                 <button type='submit' className='gameOverSubmit' onClick={(e) => this.handlePlayAgain(e)} >Play Again?</button>
                 <button type='submit' className='gameOverSubmit' onClick={(e) => this.handleHome(e)} >Home Page</button>
+
             </div>)       
+            
         }
     }
 

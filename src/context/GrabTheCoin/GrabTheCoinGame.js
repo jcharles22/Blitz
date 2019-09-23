@@ -15,7 +15,9 @@ export default function GrabTheCoinGame(canvas, ctx, updateMode, mode, nextGame,
     let ballx = canvas.width/2;
     let bally = 80;
     let movementSpeed = 3 * (mode === 'game' ? state.gameMultiplier : 1);
-    
+    let timeLeft = 15;
+    let stopScroll = true;
+
     
     let leftClick = document.getElementById('leftClick')
     leftClick.addEventListener('mousedown', leftClicked)
@@ -29,7 +31,9 @@ export default function GrabTheCoinGame(canvas, ctx, updateMode, mode, nextGame,
     let downClick = document.getElementById('downClick')
     downClick.addEventListener('mousedown', downClicked)
     downClick.addEventListener('mouseup', downClickStop)
-  
+
+
+
     function drawBall() {
       ctx.beginPath();
       ctx.rect(ballx, bally, 10, 10);
@@ -66,10 +70,18 @@ export default function GrabTheCoinGame(canvas, ctx, updateMode, mode, nextGame,
       ctx.fillStyle = 'black';
       ctx.fillText(score, canvas.width-70, 40);
     }
-  
+    function drawTime() {
+      if(mode === 'game') {
+      ctx.font = "30px Arial";
+      ctx.fillStyle = 'black';
+      ctx.fillText(timeLeft, 0, 40);
+      } 
+    }
     function draw() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       drawScore();
+      drawTime();
+
       drawPaddle();
       checkBoxAndBall();
       drawBall(); 
@@ -116,7 +128,9 @@ export default function GrabTheCoinGame(canvas, ctx, updateMode, mode, nextGame,
          }
     }
     function keyDownHandler(e) {
-      
+      if(stopScroll){
+        e.preventDefault()
+      } 
       if( e.key === 'd' || e.key === "Right" || e.key === "ArrowRight") {
         rightPressed = true;
         
@@ -166,6 +180,7 @@ export default function GrabTheCoinGame(canvas, ctx, updateMode, mode, nextGame,
     }
 
     function gameOver() {
+        stopScroll =false;
         clearInterval(interval)
         clearInterval(time);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -174,6 +189,7 @@ export default function GrabTheCoinGame(canvas, ctx, updateMode, mode, nextGame,
     }
     function cleanSlate() {
         if(mode === 'game') {
+          stopScroll = false;
         clearInterval(interval);
         clearInterval(time);
         ctx.clearRect(0, 0,canvas.width, canvas.height);
@@ -181,9 +197,18 @@ export default function GrabTheCoinGame(canvas, ctx, updateMode, mode, nextGame,
             clearInterval(time);
         }        
       }
-  
+      function countTime() {
+        if(mode === 'game') {
+        timeLeft --;
+        if(timeLeft <=0) {
+          clearInterval(timeCounter)
+        }
+      } else {clearInterval(timeCounter)}
+      }
     document.addEventListener("keydown", keyDownHandler, false);
-    document.addEventListener("keyup", keyUpHandler, false);
+    document.addEventListener("keyup", keyUpHandler,false);
+    
+    let timeCounter = setInterval(countTime, 1000);
     let time = setInterval(cleanSlate, 15000)
     let interval = setInterval(draw, 10);
   

@@ -12,7 +12,8 @@
 
 }
 .right, .c{
-    width: 100%;
+    width: 98%;
+    height: 300px;
     margin: 0 auto;
 }
 .right{
@@ -23,15 +24,17 @@
 }
 @media only screen and (min-width: 450px) {
     .rigth, .c{
-        width: 450px;
+        width: 98%;
     }
 }
 
 @media only screen and (min-width: 500px) {
     .right, .c{
-        width: 98%;
+        max-width: 550px;
+        
         height:450px;
     }
+
 }
 
 @media only screen and (min-width: 1000px) {
@@ -41,6 +44,7 @@
         display: block;
     }
     .right, .c{
+        max-width: 650px;
         width: 650px;
         height: 450px;
     }
