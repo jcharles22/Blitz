@@ -35,13 +35,17 @@ export class GameProvider extends Component {
             })
         })
         .then(response => console.log(response))
-        setTimeout(() => {this.getScores(); }, 200)
+        setTimeout(() => {this.getScores(); }, 300)
     }
     getScores=()=> {
+        console.log('fettinching')
         fetch(`${config.API_ENDPOINT}`)
             .then(response => response.json())
-            .then(response => this.setState({leader: response}))
-            
+            .then(response => {
+                this.setState({leader: response})
+                console.log(response)
+            })
+
     }
     
     setCanvas =(canvas, ctx) =>{
