@@ -43,7 +43,7 @@ export class GameProvider extends Component {
             .then(response => response.json())
             .then(response => {
                 this.setState({leader: response})
-                console.log(response)
+                console.log('fetched')
             })
 
     }
