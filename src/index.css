@@ -8,8 +8,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-width: 120px;
 
-  background: #757f9a; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #757f9a, #d7dde8); /* Chrome 10-25, Safari 5.1-6 */
+  background: #757f9a; 
+  background: -webkit-linear-gradient(to right, #757f9a, #d7dde8); 
   background: linear-gradient(to right, #757f9a, #d7dde8);
 }
 
