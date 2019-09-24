@@ -68,11 +68,13 @@ export default class GrabTheCoinCanvas extends Component {
             return (
                 <div>
                 <canvas ref="canvas" className='c' width={800} height={500} />
-                <div className='moveContainer'>
-                    <p id='upClick' ref='upClick'>Up</p>
-                    <p id='leftClick' ref='leftClick'>left</p>
-                    <p id='rightClick' ref='rightClick'>right</p>
-                    <p id='downClick' ref='downClick'>Down</p>
+                <div className=''>
+                    <button id='upClick' ref='upClick'>Up</button>
+                    <div className='moveContainer'>
+                    <button id='leftClick' ref='leftClick'>left</button>
+                    <button id='downClick' ref='downClick'>Down</button>
+                    <button id='rightClick' ref='rightClick'>right</button>
+                    </div>
                 </div>
                 </div>
             )
@@ -94,9 +96,8 @@ export default class GrabTheCoinCanvas extends Component {
            
             <div className='DescContainer'>
                     <p className='Desc'>Coin Grab:</p>
-                    <p className='Desc'>Grab as many coins as you can without toching the edge</p>
-                    <p className='Desc'>Use 'a' to move left 'w' to move up 'd' to move right and 's' to move down</p>
-                    <p className='Desc'>or 'left arrow key' to move left 'up arrow key' to move up 'right arrow key' to move right and 'down arrow key' to move down</p>
+                    <p className='Desc'>Grab as many coins as you can without toching the edge.</p>
+                    <p className='Desc'>Use the Arrow keys to move.</p>
 
                 </div>
           </div>

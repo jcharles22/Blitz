@@ -69,7 +69,10 @@ export default class BrickBreakerCanvas extends Component {
             return (
                 <div>
                 <canvas ref="canvas" className='c' width={800} height={500} />
-                <button id='leftClick' ref='leftClick'>left</button><button id='rightClick' ref='rightClick'>right</button>
+                <div className= 'moveContainer'>
+                <button id='leftClick' ref='leftClick'>left</button>
+                <button id='rightClick' ref='rightClick'>right</button>
+                </div>
                 </div>
             )
         } else if(this.state.mode === 'gameOver') {
@@ -92,9 +95,8 @@ export default class BrickBreakerCanvas extends Component {
             
             <div className='DescContainer'>
                     <p className='Desc'>Ball Bounce:</p>
-                    <p className='Desc'>Keep the ball in the air by bouning it off the paddle at the bottom</p>
-                    <p className='Desc'>Use 'a' to move left and 'd' to move right</p>
-                    <p className='Desc'>Or 'left arrow key' to move left and 'right arrow key' to move right</p>
+                    <p className='Desc'>Keep the ball in the air by bouning it off the paddle at the bottom.</p>
+                    <p className='Desc'>Use the Arrow keys to move.</p>
                 </div>
           </div>
         )

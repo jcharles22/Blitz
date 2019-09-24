@@ -19,17 +19,17 @@ export default class Home extends Component {
                     {/* <div className='otherGames'> */}
                         <Link to='/GrabTheCoin'><p className='practiceGames coinGrab'>Coin Grab</p></Link>
                         <Link to='/BrickBreaker'><p className='practiceGames ballBounce'>Ball Bounce</p></Link>
-                        <Link to='/Astorid'><p className='practiceGames dodgeRain'>Dodge Rain</p></Link>
-                        <p className='comingSoon'>Coming Soon</p>
+                        <Link to='/Astorid'><p className='practiceGames dodgeRain'>Rain</p></Link>
+                        <p className='comingSoon practiceGames'>Coming Soon</p>
 
                     {/* </div> */}
 
                 </div>
                 <div className='DescContainer'>
-                    <p className='Desc'>Blitz</p>
-                    <p className='Desc'>Find out how long you can survive!</p>
-                    <p className='Desc'>You have one life paly the minigame chanllenges and after you complete three it speeds up and it keeps speeding up unitl you die</p>
-                    <p className='Desc'>Beat the score on the Leader board to get your initals up there</p>
+                    <p className='Desc'>Welcome to Blitz:</p>
+                    <p className='Desc'>You can play the main game or practice the mini-games individually.</p>
+                    <p className='Desc'>In Blitz, you have one life. Survive as long as you can and score as many points as possible. There are three mini-games you have to survive each for 15 seconds to go to the next one, and after you finish all three you play them again, but the speed is increased. This continues until you get game over.</p>
+                    <p className='Desc'>Try to beat the score on the leader board to get your initials on there.</p>
                 </div>
             </>
         )

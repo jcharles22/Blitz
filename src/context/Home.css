@@ -13,52 +13,31 @@
     font-size: 20px;
     font-weight: 600;
 }
-
-.otherGames{
-    display: flex;
-    justify-content: space-evenly;     
-}
 .pracDesc{
-    font-style: none;
-    font: black;
+    text-align: left;
     margin:0 0 0 40px;
     font-weight: 700;
     font-size: 24px;
+    border-bottom: 2px solid black;
 }
 .game:hover, .practiceGames:hover{
     cursor: pointer;  
 }
 
-/* .coinGrab{
-    background-image: url('../assets/coingrab.jpg');
-    background-size:     cover; 
-    background-repeat:   no-repeat;
-    background-position: center center;
-} */
 .coinGrab{
     background-image:url("../assets/coingrab.gif");
     background-size:     cover; 
     background-repeat:   no-repeat;
     background-position: center center;  
 }
-/* .ballBounce{
-    background-image: url('../assets/ballBounce.jpg');
-    background-size:     cover; 
-    background-repeat:   no-repeat;
-    background-position: center center;
-} */
+
 .ballBounce{
     background-image:url("../assets/ballbounce.gif");
     background-size:     cover; 
     background-repeat:   no-repeat;
     background-position: center center;  
 }
-/* .dodgeRain{
-    background-image: url('../assets/dodgeRain.jpg');
-    background-size:     cover; 
-    background-repeat:   no-repeat;
-    background-position: center center;
-} */
+
 .dodgeRain{
     background-image:url("../assets/rain.gif");
     background-size:     cover; 
@@ -73,12 +52,7 @@
 .comingSoon{
     opacity: .5;
     text-align: center;
-    padding-top: 35px;
-    margin: 40px;
-    height: 65px;
-    width: 100px; 
-    border: 1px solid black;
-    display: inline-block;
+    
 }
 
 
@@ -92,18 +66,23 @@
     height: 110px;
     width: 150px; 
     border: 2px solid black;
+   
 }
 .game{
     text-align: center;
     font-size: 20px;
     font-weight: 700;
     color: black;
-    margin: 40px 0 40px 40px;
-    height: 220px;
-    width: 250px; 
+    margin: 40px;
+    height: 260px;
+    width: 260px; 
     border: 2px solid black;
     position: relative;
 }
+/* .coinGrab {
+    margin-left: 13%;
+} */
+
 .game{
     background-image:url("../assets/ezgif.gif");
     background-size:     cover; 
@@ -120,52 +99,38 @@
     padding:0;
     margin: 0;
 }
-.topLeft{
-    position: absolute;
-    width: 125px;
-    height: 110px;
-    border-right: 1px solid black;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-}
-.topRigth{
-    position: absolute;
-    right:0;
-    width: 125px;
-    height: 110px;
-    border-left: 1px solid black;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-}
-.bottomLeft{
-    position: absolute;
-    bottom:0;
-    width: 125px;
-    height: 110px;
-    border-right: 1px solid black;
-
-}
-.bottomRight{
-    position: absolute;
-    bottom:0;
-    right: 0;
-    width: 125px;
-    height: 110px;
-    border-left: 1px solid black;
-   
-}
 
 
 @media only screen and (min-width: 475px) {
-    .practiceGames{
+    .practiceGames, .comingSoon{
         display: inline-block;
+        
     }
     .game{
+        text-align: center;
+        font-size: 20px;
+        font-weight: 700;
+        color: black;
+        margin: 40px auto;
         height: 220px;
-        width: 300px; 
+        width: 320px; 
+        border: 2px solid black;
+        position: relative;
     }
     .mainGame{
         width: 150px;
+    }
+    .coinGrab, .dodgeRain{
+        margin-left: 13%;
+    }
+    .pracDesc{
+        text-align: center;
+        font-style: none;
+        font: black;
+        margin:0 0 0 40px;
+        font-weight: 700;
+        font-size: 24px;
+        border-bottom: 2px solid black;
     }
 }
 
@@ -173,6 +138,19 @@
     .GameList{
         width: 700px;
     }
+    .coinGrab, .dodgeRain{
+        margin-left: 20%;
+    }
+    .game{
+        height: 280px;
+        width: 400px; 
+    }
+    .practiceGames{
+        height: 120px;
+        width: 200px; 
+    }
+
+    
 }
 
 @media only screen and (min-width: 1150px){

@@ -104,16 +104,18 @@ export default class GameBoard extends Component {
  renderButtons=()=> {
      if(this.state.counter===1) {
         return (
-            <div>
-                <button id='upClick' ref='upClick'>Up</button>
-                <button id='leftClick' ref='leftClick'>left</button>
-                <button id='rightClick' ref='rightClick'>right</button>
-                <button id='downClick' ref='downClick'>Down</button>
-            </div>
+            <div className=''>
+                    <button id='upClick' ref='upClick'>Up</button>
+                    <div className='moveContainer'>
+                    <button id='leftClick' ref='leftClick'>left</button>
+                    <button id='downClick' ref='downClick'>Down</button>
+                    <button id='rightClick' ref='rightClick'>right</button>
+                    </div>
+                </div>
         )
      } else {
          return (
-            <div>
+            <div className='moveContainer'>
                 <button id='leftClick' ref='leftClick'>left</button>
                 <button id='rightClick' ref='rightClick'>right</button>
             </div>
@@ -150,11 +152,11 @@ export default class GameBoard extends Component {
             <div className='right'> 
               {this.renderGame()}
               <div className='DescContainer'>
-                    <p className='Desc'>Blitz</p>
-                    <p className='Desc'>Find out how long you can survive!</p>
-                    <p className='Desc'>You have one life paly though each game and surive for 15 seconds once you complete all of them it will start over but faster and worth more points.</p>
-                    <p className='Desc'>Beat the score on the Leader board to get your initals up there</p>
-                    <p className='Desc'>Or practice the games individualy in pracitce mini-game section.</p>
+                    <p className='Desc'>Blitz:</p>
+                    <p className='Desc'>Use the Arrow keys to move.</p>
+                    <p className='Desc'>You have one life. Survive as long as you can and score as many points as possible. There are three mini-games you have to survive each for 15 seconds to go to the next one, and after you finish all three you play them again, but the speed is increased. This continues until you get game over.</p>
+                    <p className='Desc'>Try to beat the score on the leader board to get your initials on there.</p>
+
                 </div>
               
             </div>

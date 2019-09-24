@@ -24,24 +24,29 @@ export default function GrabTheCoinGame(canvas, ctx, updateMode, mode, nextGame,
     leftClick.addEventListener('mouseup', leftClickStop)
     leftClick.addEventListener('touchstart', leftClicked)
     leftClick.addEventListener('touchstop', leftClickStop)
+    leftClick.addEventListener('mouseout', leftClickStop)
     
     let rightClick = document.getElementById('rightClick')
     rightClick.addEventListener('mousedown', rightClicked)
     rightClick.addEventListener('mouseup', rightClickStop)
     rightClick.addEventListener('touchstart', rightClicked)
     rightClick.addEventListener('touchstop', rightClickStop)
+    rightClick.addEventListener('mouseout', rightClickStop)
+    
 
     let upClick = document.getElementById('upClick')
     upClick.addEventListener('mousedown', upClicked)
     upClick.addEventListener('mouseup', upClickStop)
     rightClick.addEventListener('touchstart', upClicked)
     rightClick.addEventListener('touchstop', upClickStop)
+    rightClick.addEventListener('mouseout', upClickStop)
 
     let downClick = document.getElementById('downClick')
     downClick.addEventListener('mousedown', downClicked)
     downClick.addEventListener('mouseup', downClickStop)
     rightClick.addEventListener('touchstart', downClicked)
     rightClick.addEventListener('touchstop', downClickStop)
+    rightClick.addEventListener('mouseout', downClickStop)
 
 
 
