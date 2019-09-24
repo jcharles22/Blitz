@@ -24,6 +24,8 @@ export default function GrabTheCoinGame(canvas, ctx, updateMode, mode, nextGame,
     leftClick.addEventListener('touchstart', leftClicked)
     leftClick.addEventListener('touchstop', leftClickStop)
     leftClick.addEventListener('mouseout', leftClickStop)
+    leftClick.addEventListener('touchmove', leftClickStop)
+
     
     let rightClick = document.getElementById('rightClick')
     rightClick.addEventListener('mousedown', rightClicked)
@@ -31,6 +33,8 @@ export default function GrabTheCoinGame(canvas, ctx, updateMode, mode, nextGame,
     rightClick.addEventListener('touchstart', rightClicked)
     rightClick.addEventListener('touchstop', rightClickStop)
     rightClick.addEventListener('mouseout', rightClickStop)
+    rightClick.addEventListener('touchmove', rightClickStop)
+
     
 
     let upClick = document.getElementById('upClick')
@@ -39,6 +43,8 @@ export default function GrabTheCoinGame(canvas, ctx, updateMode, mode, nextGame,
     upClick.addEventListener('touchstart', upClicked)
     upClick.addEventListener('touchstop', upClickStop)
     upClick.addEventListener('mouseout', upClickStop)
+    upClick.addEventListener('touchmove', upClickStop)
+
 
     let downClick = document.getElementById('downClick')
     downClick.addEventListener('mousedown', downClicked)
@@ -46,6 +52,8 @@ export default function GrabTheCoinGame(canvas, ctx, updateMode, mode, nextGame,
     downClick.addEventListener('touchstart', downClicked)
     downClick.addEventListener('touchstop', downClickStop)
     downClick.addEventListener('mouseout', downClickStop)
+    downClick.addEventListener('touchmove', downClickStop)
+
 
     function drawBall() {
       ctx.beginPath();
