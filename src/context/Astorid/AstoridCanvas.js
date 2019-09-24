@@ -94,7 +94,7 @@ export default class BrickBreakerCanvas extends Component {
            
             <div className='DescContainer'>
                     <p className='Desc'>Rain:</p>
-                    <p className='Desc'>Keep your out of the rain if you get hit by it game over.</p>
+                    <p className='Desc'>Keep your player out of the rain if you get hit by it game over.</p>
                     <p className='Desc'>Use the Arrow keys to move.</p>
                 </div>
           </div>
