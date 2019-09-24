@@ -4,11 +4,10 @@
 Blitz is fun acrade style game. Check it out here https://blitz.jaredcharles.now.sh/
 
 ## Screenshots
-![Landing page screen shot]()
-![Blitz main Game]()
-![Card List screen shot](https://github.com/jcharles22/flip-and-sip/blob/master/public/assets/CardList.JPG?raw=true)
-![Add Players screen shot](https://github.com/jcharles22/flip-and-sip/blob/master/public/assets/AddPlayers.JPG?raw=true)
-![Game screen shot](https://github.com/jcharles22/flip-and-sip/blob/master/public/assets/GamePage.JPG?raw=true)
+![Landing page screen shot](https://github.com/jcharles22/Blitz/blob/master/src/assets/landingPage.JPG?raw=true)
+![Blitz main Game](https://github.com/jcharles22/Blitz/blob/master/src/assets/blitzMainGame.JPG?raw=true)
+![Rain Game Page](https://github.com/jcharles22/Blitz/blob/master/src/assets/rain.JPG?raw=true)
+![Coin Grab Page](https://github.com/jcharles22/Blitz/blob/master/src/assets/coinGrab.JPG?raw=true)
 
 
 ## Summary
