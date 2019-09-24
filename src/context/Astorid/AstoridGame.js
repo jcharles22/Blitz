@@ -152,7 +152,7 @@ export default function AstoridGame(canvas, ctx, updateMode, mode, nextGame, sta
     if(mode === 'game') {
     ctx.font = "30px Arial";
     ctx.fillStyle = 'black';
-    ctx.fillText(timeLeft, 0, 40);
+    ctx.fillText(timeLeft, 20, 40);
     } 
   }
   function draw(){
