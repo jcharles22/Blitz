@@ -36,16 +36,16 @@ export default function GrabTheCoinGame(canvas, ctx, updateMode, mode, nextGame,
     let upClick = document.getElementById('upClick')
     upClick.addEventListener('mousedown', upClicked)
     upClick.addEventListener('mouseup', upClickStop)
-    rightClick.addEventListener('touchstart', upClicked)
-    rightClick.addEventListener('touchstop', upClickStop)
-    rightClick.addEventListener('mouseout', upClickStop)
+    upClick.addEventListener('touchstart', upClicked)
+    upClick.addEventListener('touchstop', upClickStop)
+    upClick.addEventListener('mouseout', upClickStop)
 
     let downClick = document.getElementById('downClick')
     downClick.addEventListener('mousedown', downClicked)
     downClick.addEventListener('mouseup', downClickStop)
-    rightClick.addEventListener('touchstart', downClicked)
-    rightClick.addEventListener('touchstop', downClickStop)
-    rightClick.addEventListener('mouseout', downClickStop)
+    downClick.addEventListener('touchstart', downClicked)
+    downClick.addEventListener('touchstop', downClickStop)
+    downClick.addEventListener('mouseout', downClickStop)
 
     function drawBall() {
       ctx.beginPath();
