@@ -43,3 +43,7 @@
     margin: 10px 0;
     
 }
+
+button{
+    user-select: none;
+}

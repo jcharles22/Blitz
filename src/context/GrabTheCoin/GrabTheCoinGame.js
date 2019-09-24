@@ -22,18 +22,18 @@ export default function GrabTheCoinGame(canvas, ctx, updateMode, mode, nextGame,
     leftClick.addEventListener('mousedown', leftClicked)
     leftClick.addEventListener('mouseup', leftClickStop)
     leftClick.addEventListener('touchstart', leftClicked)
-    leftClick.addEventListener('touchstop', leftClickStop)
+    leftClick.addEventListener('touchend', leftClickStop)
     leftClick.addEventListener('mouseout', leftClickStop)
-    leftClick.addEventListener('touchmove', leftClickStop)
+    leftClick.addEventListener('touchcancel', leftClickStop)
 
     
     let rightClick = document.getElementById('rightClick')
     rightClick.addEventListener('mousedown', rightClicked)
     rightClick.addEventListener('mouseup', rightClickStop)
     rightClick.addEventListener('touchstart', rightClicked)
-    rightClick.addEventListener('touchstop', rightClickStop)
+    rightClick.addEventListener('touchend', rightClickStop)
     rightClick.addEventListener('mouseout', rightClickStop)
-    rightClick.addEventListener('touchmove', rightClickStop)
+    rightClick.addEventListener('touchcancel', rightClickStop)
 
     
 
@@ -41,18 +41,18 @@ export default function GrabTheCoinGame(canvas, ctx, updateMode, mode, nextGame,
     upClick.addEventListener('mousedown', upClicked)
     upClick.addEventListener('mouseup', upClickStop)
     upClick.addEventListener('touchstart', upClicked)
-    upClick.addEventListener('touchstop', upClickStop)
+    upClick.addEventListener('touchend', upClickStop)
     upClick.addEventListener('mouseout', upClickStop)
-    upClick.addEventListener('touchmove', upClickStop)
+    upClick.addEventListener('touchcancel', upClickStop)
 
 
     let downClick = document.getElementById('downClick')
     downClick.addEventListener('mousedown', downClicked)
     downClick.addEventListener('mouseup', downClickStop)
     downClick.addEventListener('touchstart', downClicked)
-    downClick.addEventListener('touchstop', downClickStop)
+    downClick.addEventListener('touchend', downClickStop)
     downClick.addEventListener('mouseout', downClickStop)
-    downClick.addEventListener('touchmove', downClickStop)
+    downClick.addEventListener('touchcancel', downClickStop)
 
 
     function drawBall() {

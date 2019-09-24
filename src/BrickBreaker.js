@@ -22,12 +22,12 @@ export default function BrickBreaker(canvas, ctx, updateMode, mode, nextGame, st
   leftClick.addEventListener('mouseout', leftClickStop)
   leftClick.addEventListener('mouseup', leftClickStop)
   leftClick.addEventListener('touchstart', leftClicked)
-  leftClick.addEventListener('touchstop', leftClickStop)
+  leftClick.addEventListener('touchend', leftClickStop)
   let rightClick = document.getElementById('rightClick')
   rightClick.addEventListener('mousedown', rightClicked)
   rightClick.addEventListener('mouseup', rightClickStop)
   rightClick.addEventListener('touchstart', rightClicked)
-  rightClick.addEventListener('touchstop', rightClickStop)
+  rightClick.addEventListener('touchend', rightClickStop)
   rightClick.addEventListener('mouseout', rightClickStop)
 
 
