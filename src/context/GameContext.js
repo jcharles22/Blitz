@@ -23,7 +23,6 @@ export class GameProvider extends Component {
         leader: [{"ABC": 123}]
     };
     submitUserScore=(users, score)=> {
-        console.log(users, score)
         fetch(`${config.API_ENDPOINT}`, {
             method: 'POST',
             headers: {
@@ -34,16 +33,13 @@ export class GameProvider extends Component {
                 "score" : score
             })
         })
-        .then(response => console.log(response))
         setTimeout(() => {this.getScores(); }, 300)
     }
     getScores=()=> {
-        console.log('fettinching')
         fetch(`${config.API_ENDPOINT}`)
             .then(response => response.json())
             .then(response => {
                 this.setState({leader: response})
-                console.log('fetched')
             })
 
     }
@@ -57,7 +53,6 @@ export class GameProvider extends Component {
             score: score,
             life: false
         })
-        console.log(this.state)  
     }
     updateLife=()=>{
         this.setState({

@@ -41,7 +41,6 @@ export default class BrickBreakerCanvas extends Component {
         BrickBreaker(canvas,ctx, this.updateMode, this.state.mode)
     }
     updateIntials=(e)=> {
-        console.log(e.target)
         let newIntials = e.target.value;
         newIntials = newIntials.toUpperCase();
         this.setState({

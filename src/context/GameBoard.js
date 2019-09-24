@@ -71,7 +71,6 @@ export default class GameBoard extends Component {
  runGame=()=>{
      const canvas = this.refs.canvas
      const ctx = canvas.getContext("2d")
-     console.log(canvas, ctx)
      if(this.state.counter===0){
      BrickBreaker(canvas, ctx, this.updateMode, this.state.mode, this.nextGame, this.state, this.updateScore);
      } else if (this.state.counter === 1) {
@@ -81,7 +80,6 @@ export default class GameBoard extends Component {
      }
  }
  updateIntials=(e)=> {
-     console.log(e.target)
      let newIntials = e.target.value;
      newIntials = newIntials.toUpperCase();
      this.setState({
@@ -140,7 +138,6 @@ export default class GameBoard extends Component {
                 <h3 className='gameOverTitle'>Game Over</h3>
                 <h4>{this.state.score}</h4>
                 <input type='text' maxLength='3'  className='initals' value={this.state.initails} onChange={(e)=> this.updateIntials(e)}/>
-                {console.log(this.state.score)}
                 <button type='submit' className='initalsSubmit' onClick={(e) => this.handleSubmit(e)} >Enter</button>
             </div>)       
         }

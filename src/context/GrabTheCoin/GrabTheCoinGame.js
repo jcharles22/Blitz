@@ -3,7 +3,6 @@ export default function GrabTheCoinGame(canvas, ctx, updateMode, mode, nextGame,
 
     let score = (mode === 'game' ? state.score : 0);
     let points = 100 * (mode === 'game' ? state.gameMultiplier : 1)
-    // let color;
     let paddleHeight = 45;
     let paddleWidth = 45;
     let paddleX = (canvas.width-paddleWidth)/2;
@@ -48,9 +47,6 @@ export default function GrabTheCoinGame(canvas, ctx, updateMode, mode, nextGame,
     rightClick.addEventListener('touchstop', downClickStop)
     rightClick.addEventListener('mouseout', downClickStop)
 
-
-
-
     function drawBall() {
       ctx.beginPath();
       ctx.rect(ballx, bally, 10, 10);
@@ -63,16 +59,13 @@ export default function GrabTheCoinGame(canvas, ctx, updateMode, mode, nextGame,
         if(ballx > canvas.width - 20) {
             ballx = canvas.width - 40
         }
-        console.log(ballx)
     }
-    
 
     function getRandY() {
         bally = Math.floor(Math.random() * canvas.height)
         if(bally > canvas.height - 20) {
             bally = canvas.height - 40
         }
-        console.log(bally)
     }
   
     function drawPaddle() {
@@ -106,43 +99,43 @@ export default function GrabTheCoinGame(canvas, ctx, updateMode, mode, nextGame,
   
     }
     function checkBoxandWall() {
-        if(rightPressed) {
-            paddleX += movementSpeed;
-            if (paddleX + paddleWidth > canvas.width){
-                gameOver();
-                paddleX = canvas.width - paddleWidth;
-            }
-          } 
-          else if(leftPressed) {
-            paddleX -= movementSpeed;
-            if (paddleX < -movementSpeed){
-                gameOver();
-                paddleX = 0;
-            }
-          } else if(upPressed) {
-              paddleY -= movementSpeed;
-              if(paddleY < 0 ) {
+      if(rightPressed) {
+          paddleX += movementSpeed;
+          if (paddleX + paddleWidth > canvas.width){
               gameOver();
-              paddleY= 0;
-              }
-          } else if(downPressed) {
-              paddleY += movementSpeed ;
-              if(paddleY + paddleHeight > canvas.height){
-              gameOver()
-                paddleY = canvas.height - paddleHeight;
-              }
+              paddleX = canvas.width - paddleWidth;
           }
+        } 
+        else if(leftPressed) {
+          paddleX -= movementSpeed;
+          if (paddleX < -movementSpeed){
+              gameOver();
+              paddleX = 0;
+          }
+        } else if(upPressed) {
+            paddleY -= movementSpeed;
+            if(paddleY < 0 ) {
+            gameOver();
+            paddleY= 0;
+            }
+        } else if(downPressed) {
+            paddleY += movementSpeed ;
+            if(paddleY + paddleHeight > canvas.height){
+            gameOver()
+              paddleY = canvas.height - paddleHeight;
+            }
+        }
     }
     function checkBoxAndBall() {
-        if (paddleX < ballx + 10 &&
-            paddleX + paddleWidth > ballx &&
-            paddleY < bally + 10 &&
-            paddleY + paddleHeight > bally) {
-            score += points
-                getRandX()
-                getRandY()
-                
-         }
+      if (paddleX < ballx + 10 &&
+          paddleX + paddleWidth > ballx &&
+          paddleY < bally + 10 &&
+          paddleY + paddleHeight > bally) {
+          score += points
+              getRandX()
+              getRandY()
+              
+        }
     }
     function keyDownHandler(e) {
       if(stopScroll){
@@ -201,16 +194,16 @@ export default function GrabTheCoinGame(canvas, ctx, updateMode, mode, nextGame,
         clearInterval(interval)
         clearInterval(time);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        console.log('you died');
         updateMode(score)
     }
     function cleanSlate() {
         if(mode === 'game') {
           stopScroll = false;
-        clearInterval(interval);
-        clearInterval(time);
-        ctx.clearRect(0, 0,canvas.width, canvas.height);
-        nextGame(score) } else {
+          clearInterval(interval);
+          clearInterval(time);
+          ctx.clearRect(0, 0,canvas.width, canvas.height);
+          nextGame(score) 
+        } else {
             clearInterval(time);
         }        
       }

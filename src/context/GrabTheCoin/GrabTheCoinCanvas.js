@@ -14,7 +14,6 @@ export default class GrabTheCoinCanvas extends Component {
        mode: 'start',
        score: 0
     };
- 
       
     handleNext(){
         this.setState({score: 1})
@@ -33,7 +32,6 @@ export default class GrabTheCoinCanvas extends Component {
               mode: 'gameOver'
           })
       }
-
       
     runGame=()=>{
         const canvas = this.refs.canvas
@@ -41,7 +39,6 @@ export default class GrabTheCoinCanvas extends Component {
         GrabTheCoinGame(canvas,ctx, this.updateMode)
     }
     updateIntials=(e)=> {
-        console.log(e.target)
         let newIntials = e.target.value;
         newIntials = newIntials.toUpperCase();
         this.setState({

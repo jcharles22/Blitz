@@ -31,20 +31,17 @@ export default function AstoridGame(canvas, ctx, updateMode, mode, nextGame, sta
 
 
   function leftClicked() {
-    console.log('some')
     left = true
   }
   function leftClickStop() {
     left = false
   }
   function rightClicked() {
-    console.log('some')
     right = true
   }
   function rightClickStop() {
     right = false
   }
-  // when key is pressed down, move
   function keysDown(e) {
     if(e.keyCode === 39 || e.keyCode === 68){
       right = true;
@@ -54,7 +51,6 @@ export default function AstoridGame(canvas, ctx, updateMode, mode, nextGame, sta
     }
 
   }
-  // when key is released, stop moving
   function keysUp(e) {
     if(e.keyCode === 39 || e.keyCode === 68){
       right = false;
@@ -65,7 +61,6 @@ export default function AstoridGame(canvas, ctx, updateMode, mode, nextGame, sta
     
   }
   
-  // player specs
   var player = {
     size: 30,
     x: (canvas.width -30)/ 2,
@@ -73,10 +68,6 @@ export default function AstoridGame(canvas, ctx, updateMode, mode, nextGame, sta
     color: "green"
   };
   
-  // specs for balls you want to collect
-
-  
-  // specs for balls you want to avoid
   var badArc = {
     x:[],
     y:[],
@@ -89,7 +80,6 @@ export default function AstoridGame(canvas, ctx, updateMode, mode, nextGame, sta
   
 
 
-  //adds values to x property of badArc
   function drawRain() {
     
       if(Math.random() < .05){
@@ -101,7 +91,6 @@ export default function AstoridGame(canvas, ctx, updateMode, mode, nextGame, sta
   }
 
   
-  // draws black ball to avoid
   function drawBlackBall() {
     for(var i = 0; i < rain; i++){   
       ctx.beginPath();
@@ -111,7 +100,6 @@ export default function AstoridGame(canvas, ctx, updateMode, mode, nextGame, sta
       ctx.closePath();
     }
   }
-  // draw player to canvas
   function drawPlayer() {
     ctx.beginPath();
     ctx.rect(player.x, player.y, player.size, player.size);
@@ -120,7 +108,6 @@ export default function AstoridGame(canvas, ctx, updateMode, mode, nextGame, sta
     ctx.closePath();
   }
   
-  // moves objects in play
   function playUpdate() {
     
     if(left && player.x > 0){
@@ -133,12 +120,10 @@ export default function AstoridGame(canvas, ctx, updateMode, mode, nextGame, sta
       badArc.y[i] += badArc.speed;
     }
     
-    // collision detection
     for(let i = 0; i < rain; i++){
       if(player.x < badArc.x[i] + rad && player.x + 30 + rad > badArc.x[i] && player.y < badArc.y[i] + rad && player.y + 30 > badArc.y[i]){
           gamesOver();
       }
-      // Removes circles from x and y arrays that are no longer in play
       if(badArc.y[i] > canvas.height){
         badArc.x.shift();
         badArc.y.shift();
@@ -147,7 +132,6 @@ export default function AstoridGame(canvas, ctx, updateMode, mode, nextGame, sta
     }
   
   }
-  //signals end of game and resets x, y, and state arrays for arcs
   function gamesOver(){
     clearInterval(scoreTimer)
     clearInterval(time)
@@ -164,7 +148,6 @@ export default function AstoridGame(canvas, ctx, updateMode, mode, nextGame, sta
     ctx.fillText(score, canvas.width-70, 40);
   }
   
-  //resets game, life, and score counters
   function drawTime() {
     if(mode === 'game') {
     ctx.font = "30px Arial";
@@ -183,20 +166,14 @@ export default function AstoridGame(canvas, ctx, updateMode, mode, nextGame, sta
       drawScore();
 
     }
-
-    
-
-    
-    
   }
   function cleanSlate() {
     if(mode === 'game') {
-    clearInterval(time)
-    clearInterval(scoreTimer)
-    clearInterval(interval)
-    ctx.clearRect(0, 0,canvas.width, canvas.height);
-    console.log('in')
-    nextGame(score)
+      clearInterval(time)
+      clearInterval(scoreTimer)
+      clearInterval(interval)
+      ctx.clearRect(0, 0,canvas.width, canvas.height);
+      nextGame(score)
 
     } else {
       clearInterval(time);

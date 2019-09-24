@@ -16,11 +16,6 @@ export default class LeaderBoard extends Component {
                     <p key={index} className='leaderBoardScore'>{`${item.users} - ${item.score}`}</p>
                     )
                 })}
-                {/* <p className='leaderBoardScore'>JTC 800</p>
-                <p className='leaderBoardScore'>JTC 700</p>
-                <p className='leaderBoardScore'>JTC 600</p>
-                <p className='leaderBoardScore'>JTC 500</p>
-                <p className='leaderBoardScore'>JTC 400</p> */}
             </div>
         )
     }
