@@ -43,17 +43,3 @@ it('Home', () => {
 
 
 
-
-    // <Logo></Logo>
-
-    // <LeaderBoard></LeaderBoard>
-
-    // <Route path='/' exact component = {Home} />
-
-    // <Route path='/BlitzGame' exact component = {GameBoard} />
-
-    // <Route path='/GrabTheCoin' exact component = {({history}) =><GrabTheCoinCanvas history={history} /> }/>
-
-    // <Route path='/BrickBreaker' exact component = {({history}) =><BrickBreakerCanvas history={history} /> }/>
-
-    // <Route path='/Astorid' exact component = {({history}) => <AsotridCanvas history={history} /> }/>
