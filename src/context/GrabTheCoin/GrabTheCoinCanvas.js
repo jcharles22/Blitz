@@ -93,7 +93,7 @@ export default class GrabTheCoinCanvas extends Component {
            
             <div className='DescContainer'>
                     <p className='Desc'>Coin Grab:</p>
-                    <p className='Desc'>Grab as many coins as you can without toching the edge.</p>
+                    <p className='Desc'>Grab as many coins as you can without touching the edge.</p>
                     <p className='Desc'>Use the Arrow keys to move.</p>
 
                 </div>
